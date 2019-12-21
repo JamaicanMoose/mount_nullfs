@@ -10,11 +10,15 @@ This program allows users to create nullfs mounts.
 
 **The use of this program requires disabling both `SIP` and `AMFI`. This cripples many of the modern security measures built into macOS.**
 
-SIP and AMFI can be disabled by rebooting into recovery mode by holding `CMD-R` on reboot and running the following commands:
+`SIP` and `AMFI` can be disabled by rebooting into recovery mode by holding `CMD-R` on reboot and running the following commands:
 ```bash
 sudo csrutil disable
 sudo nvram boot-args=“amfi_get_out_of_my_way=0x1”
 ```
+
+If disabling `SIP` and `AMFI` sounds bad to you (and it should) then you should probably be using either [bindfs](https://github.com/mpartel/bindfs) or [unionfs-fuse](https://github.com/rpodgorny/unionfs-fuse). Both are FUSE based filesystems that emulate loopback and unionfs (which is a loopback when only one branch is specified) filesystems respectively that run perfectly fine on modern macOS.
+
+A formula for bindfs is available in standard homebrew repositories. A formula for unionfs-fuse is available to tap [here](https://github.com/JamaicanMoose/homebrew-moosetap).
 
 ## Usage
 ```bash
