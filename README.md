@@ -20,6 +20,11 @@ If disabling `SIP` and `AMFI` sounds bad to you (and it should) then you should 
 
 A formula for bindfs is available in standard homebrew repositories. A formula for unionfs-fuse is available to tap [here](https://github.com/JamaicanMoose/homebrew-moosetap).
 
+Alternatively you can use local NFS mounts:
+```bash
+mount localhost:target_fs mount_point
+```
+
 ## Usage
 ```bash
 mount_nullfs [-o options] target_fs mount_point
